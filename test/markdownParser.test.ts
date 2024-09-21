@@ -44,12 +44,12 @@ describe("convertMarkdownToHtml", () => {
 ## Subtitle
 **Bold** and *Italic* text
 [Link](https://example.com)
-![Image](https://example.com/image.png)`;
+![Alt text](https://www.shutterstock.com/image-photo/black-rowan-berries-on-branches-red-159086927)`;
     const expected = `<h1>Title</h1>
 <h2>Subtitle</h2>
 <b>Bold</b> and <i>Italic</i> text
 <a href='https://example.com'>Link</a>
-<img alt='Image' src='https://example.com/image.png' />`;
+<img alt='Alt text' src='https://www.shutterstock.com/image-photo/black-rowan-berries-on-branches-red-159086927' />`;
     expect(convertMarkdownToHtml(input)).toBe(expected);
   });
 });

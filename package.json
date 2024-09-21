@@ -1,6 +1,6 @@
 {
   "name": "markglow",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "a package for convert markdown to htl",
   "main": "dist/index.js",
   "scripts": {
