@@ -1,5 +1,5 @@
 import { it, expect, describe } from "vitest";
-import { convertMarkdownToHtml } from "../src/index"; 
+import { convertMarkdownToHtml } from "../src/index";
 
 describe("convertMarkdownToHtml", () => {
   it("converts H1 header", () => {
@@ -32,15 +32,24 @@ describe("convertMarkdownToHtml", () => {
     expect(convertMarkdownToHtml(input)).toBe(expected);
   });
 
+  it("converts images", () => {
+    const input = "![Alt text](https://example.com/image.png)";
+    const expected =
+      "<img alt='Alt text' src='https://example.com/image.png' />";
+    expect(convertMarkdownToHtml(input)).toBe(expected);
+  });
+
   it("converts multiple markdown elements", () => {
     const input = `# Title
 ## Subtitle
 **Bold** and *Italic* text
-[Link](https://example.com)`;
+[Link](https://example.com)
+![Image](https://example.com/image.png)`;
     const expected = `<h1>Title</h1>
 <h2>Subtitle</h2>
 <b>Bold</b> and <i>Italic</i> text
-<a href='https://example.com'>Link</a>`;
+<a href='https://example.com'>Link</a>
+<img alt='Image' src='https://example.com/image.png' />`;
     expect(convertMarkdownToHtml(input)).toBe(expected);
   });
 });
